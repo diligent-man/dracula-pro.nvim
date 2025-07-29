@@ -1,5 +1,4 @@
 " Configuration: {{{
-
 if v:version > 580
   highlight clear
   if exists('syntax_on')
@@ -13,27 +12,36 @@ if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 
   finish
 endif
 
-" Palette: {{{2
 
-let s:fg        = g:dracula_pro#palette.fg
+" Palette: {{{
+let s:red          = g:dracula_pro#palette.red
+let s:cyan         = g:dracula_pro#palette.cyan
+let s:pink         = g:dracula_pro#palette.pink
+let s:green        = g:dracula_pro#palette.green
+let s:orange       = g:dracula_pro#palette.orange
+let s:purple       = g:dracula_pro#palette.purple
+let s:purple     = g:dracula_pro#palette.purple
+let s:yellow       = g:dracula_pro#palette.yellow
+let s:slate_grey   = g:dracula_pro#palette.grey
 
-let s:bglighter = g:dracula_pro#palette.bglighter
-let s:bglight   = g:dracula_pro#palette.bglight
-let s:bg        = g:dracula_pro#palette.bg
-let s:bgdark    = g:dracula_pro#palette.bgdark
-let s:bgdarker  = g:dracula_pro#palette.bgdarker
+let s:fg           = g:dracula_pro#palette.fg
 
-let s:comment   = g:dracula_pro#palette.comment
-let s:selection = g:dracula_pro#palette.selection
-let s:subtle    = g:dracula_pro#palette.subtle
+let s:bg           = g:dracula_pro#palette.bg
+let s:bgdark       = g:dracula_pro#palette.bgdark
+let s:bglight      = g:dracula_pro#palette.bglight
+let s:bgdarker     = g:dracula_pro#palette.bgdarker
+let s:bglighter    = g:dracula_pro#palette.bglighter
+let s:bgfold       = g:dracula_pro#palette.bgfold
 
-let s:cyan      = g:dracula_pro#palette.cyan
-let s:green     = g:dracula_pro#palette.green
-let s:orange    = g:dracula_pro#palette.orange
-let s:pink      = g:dracula_pro#palette.pink
-let s:purple    = g:dracula_pro#palette.purple
-let s:red       = g:dracula_pro#palette.red
-let s:yellow    = g:dracula_pro#palette.yellow
+let s:subtle       = g:dracula_pro#palette.subtle
+let s:comment      = g:dracula_pro#palette.comment
+let s:selection    = g:dracula_pro#palette.selection
+
+let s:linenr       = g:dracula_pro#palette.slate_grey
+let s:cursorlinenr = g:dracula_pro#palette.grey
+
+let s:function     = g:dracula_pro#palette.function
+
 
 let s:none      = ['NONE', 'NONE']
 
@@ -49,10 +57,10 @@ if has('terminal')
     call add(g:terminal_ansi_colors, g:dracula_pro#palette['color_' . s:i])
   endfor
 endif
+" }}}
 
-" }}}2
-" User Configuration: {{{2
 
+" User Configuration: {{{
 if !exists('g:dracula_bold')
   let g:dracula_bold = 1
 endif
@@ -76,10 +84,10 @@ endif
 if !exists('g:dracula_colorterm')
   let g:dracula_colorterm = 1
 endif
+"}}}
 
-"}}}2
-" Script Helpers: {{{2
 
+" Script Helpers: {{{
 let s:attrs = {
       \ 'bold': g:dracula_bold == 1 ? 'bold' : 0,
       \ 'italic': g:dracula_italic == 1 ? 'italic' : 0,
@@ -113,26 +121,10 @@ function! s:h(scope, fg, ...) " bg, attr_list, special
 
   execute join(l:hl_string, ' ')
 endfunction
+"}}}
 
-"}}}2
-" Dracula Highlight Groups: {{{2
 
-call s:h('DraculaBgLight', s:none, s:bglight)
-call s:h('DraculaBgLighter', s:none, s:bglighter)
-call s:h('DraculaBgDark', s:none, s:bgdark)
-call s:h('DraculaBgDarker', s:none, s:bgdarker)
-
-call s:h('DraculaFg', s:fg)
-call s:h('DraculaFgUnderline', s:fg, s:none, [s:attrs.underline])
-call s:h('DraculaFgBold', s:fg, s:none, [s:attrs.bold])
-
-call s:h('DraculaComment', s:comment)
-call s:h('DraculaCommentBold', s:comment, s:none, [s:attrs.bold])
-
-call s:h('DraculaSelection', s:none, s:selection)
-
-call s:h('DraculaSubtle', s:subtle)
-
+" Dracula Highlight Groups: {{{
 call s:h('DraculaCyan', s:cyan)
 call s:h('DraculaCyanItalic', s:cyan, s:none, [s:attrs.italic])
 
@@ -160,26 +152,51 @@ call s:h('DraculaRedInverse', s:fg, s:red)
 call s:h('DraculaYellow', s:yellow)
 call s:h('DraculaYellowItalic', s:yellow, s:none, [s:attrs.italic])
 
-call s:h('DraculaError', s:red, s:none, [], s:red)
+call s:h('DraculaPurple', s:purple)
+""""""""""""
 
+call s:h('DraculaBgLight', s:none, s:bglight)
+call s:h('DraculaBgLighter', s:none, s:bglighter)
+call s:h('DraculaBgDark', s:none, s:bgdark)
+call s:h('DraculaBgDarker', s:none, s:bgdarker)
+
+call s:h('DraculaFg', s:fg)
+call s:h('DraculaFgBold', s:fg, s:none, [s:attrs.bold])
+call s:h('DraculaFgUnderline', s:fg, s:none, [s:attrs.underline])
+""""""""""""
+
+call s:h('DraculaComment', s:comment)
+call s:h('DraculaCommentBold', s:comment, s:none, [s:attrs.bold])
+
+call s:h('DraculaSubtle', s:subtle)
+call s:h('DraculaSelection', s:none, s:selection)
+
+call s:h('LineNr', s:linenr)
+call s:h('CursorLineNr', s:cursorlinenr)
+
+call s:h('DraculaTodo', s:cyan, s:none, [s:attrs.bold])
+call s:h('DraculaSearch', s:green, s:yellow, [s:attrs.inverse])
+
+call s:h('DraculaFunction', s:function)
+
+call s:h('DraculaBoundary', s:comment, s:bgdark)
+call s:h('DraculaFolding', s:comment, s:bgfold)
+call s:h('DraculaLink', s:cyan, s:none, [s:attrs.underline])
+
+call s:h('DraculaError', s:red, s:none, [], s:red)
 call s:h('DraculaErrorLine', s:none, s:none, [s:attrs.undercurl], s:red)
 call s:h('DraculaWarnLine', s:none, s:none, [s:attrs.undercurl], s:orange)
 call s:h('DraculaInfoLine', s:none, s:none, [s:attrs.undercurl], s:cyan)
 
-call s:h('DraculaTodo', s:cyan, s:none, [s:attrs.bold, s:attrs.inverse])
-call s:h('DraculaSearch', s:green, s:none, [s:attrs.inverse])
-call s:h('DraculaBoundary', s:comment, s:bgdark)
-call s:h('DraculaLink', s:cyan, s:none, [s:attrs.underline])
-
 call s:h('DraculaDiffChange', s:orange, s:none)
 call s:h('DraculaDiffText', s:bg, s:orange)
 call s:h('DraculaDiffDelete', s:red, s:bgdark)
-
-" }}}2
-
 " }}}
-" User Interface: {{{
+" }}}
 
+
+" User Interface: {{{
+" Ref: https://neovim.io/doc/user/syntax.html#_13.-highlight-command
 set background=dark
 
 " Required as some plugins will overwrite
@@ -191,9 +208,15 @@ call s:h('StatusLineTermNC', s:none, s:bglight)
 call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
 call s:h('CursorLine', s:none, s:subtle)
 
+hi! link LineNr       LineNr
+hi! link CursorLineNr CursorLineNr
+
+hi! link Search       DraculaSearch
+
 hi! link ColorColumn  DraculaBgDark
 hi! link CursorColumn CursorLine
-hi! link CursorLineNr DraculaYellow
+
+hi! link IncSearch    DraculaOrangeInverse
 hi! link DiffAdd      DraculaGreen
 hi! link DiffAdded    DiffAdd
 hi! link DiffChange   DraculaDiffChange
@@ -203,9 +226,7 @@ hi! link DiffText     DraculaDiffText
 hi! link Directory    DraculaPurpleBold
 hi! link ErrorMsg     DraculaRedInverse
 hi! link FoldColumn   DraculaSubtle
-hi! link Folded       DraculaBoundary
-hi! link IncSearch    DraculaOrangeInverse
-call s:h('LineNr', s:comment)
+hi! link Folded       DraculaFolding
 hi! link MoreMsg      DraculaFgBold
 hi! link NonText      DraculaSubtle
 hi! link Pmenu        DraculaBgDark
@@ -213,8 +234,9 @@ hi! link PmenuSbar    DraculaBgDark
 hi! link PmenuSel     DraculaSelection
 hi! link PmenuThumb   DraculaSelection
 hi! link Question     DraculaFgBold
-hi! link Search       DraculaSearch
+
 call s:h('SignColumn', s:comment)
+
 hi! link TabLine      DraculaBoundary
 hi! link TabLineFill  DraculaBgDarker
 hi! link TabLineSel   Normal
@@ -223,10 +245,10 @@ hi! link VertSplit    DraculaBoundary
 hi! link Visual       DraculaSelection
 hi! link VisualNOS    Visual
 hi! link WarningMsg   DraculaOrangeInverse
-
 " }}}
-" Syntax: {{{
 
+
+" Syntax: {{{
 " Required as some plugins will overwrite
 call s:h('MatchParen', s:green, s:none, [s:attrs.underline])
 call s:h('Conceal', s:cyan, s:none)
@@ -257,24 +279,26 @@ hi! link SpellLocal DraculaWarnLine
 hi! link SpellCap DraculaInfoLine
 hi! link SpellRare DraculaInfoLine
 
+" Some dtypes not match with Python, etc.
 hi! link Constant DraculaPurple
 hi! link String DraculaYellow
 hi! link Character DraculaPink
-hi! link Number Constant
-hi! link Boolean Constant
-hi! link Float Constant
+hi! link Number DraculaPurple
+hi! link Boolean DraculaPurple
+hi! link Float DraculaPurple
 
-hi! link Identifier DraculaFg
-hi! link Function DraculaGreen
+" Common to most languages
+hi! link Identifier DraculaFg               " any variable name
+hi! link Function DraculaFunction           " also method
+hi! link Statement DraculaPink              " any statement (e.g. class in Python)
+hi! link Conditional DraculaPink            " if, then, else, endif, switch, etc.
+hi! link Repeat DraculaPink                 " for, do, while, etc.
+hi! link Label DraculaPink                  " case, default, etc.
+hi! link Operator DraculaPink               " sizeof, +, *, etc.
+hi! link Keyword DraculaPink                " any other keyword
+hi! link Exception DraculaPink              " try, catch, throw
 
-hi! link Statement DraculaPink
-hi! link Conditional DraculaPink
-hi! link Repeat DraculaPink
-hi! link Label DraculaPink
-hi! link Operator DraculaPink
-hi! link Keyword DraculaPink
-hi! link Exception DraculaPink
-
+" Mostly for C/ C++
 hi! link PreProc DraculaPink
 hi! link Include DraculaPink
 hi! link Define DraculaPink
@@ -284,18 +308,18 @@ hi! link StorageClass DraculaPink
 hi! link Structure DraculaPink
 hi! link Typedef DraculaPink
 
-hi! link Type DraculaCyanItalic
+hi! link Type DraculaPinkItalic
 
 hi! link Delimiter DraculaFg
 
 hi! link Special DraculaPink
 hi! link SpecialComment DraculaCyanItalic
 hi! link Tag DraculaCyan
+
 hi! link helpHyperTextJump DraculaLink
 hi! link helpCommand DraculaPurple
 hi! link helpExample DraculaGreen
 hi! link helpBacktick Special
-
 "}}}
 
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0 et:

@@ -1,25 +1,31 @@
 " Palette: {{{
+let g:dracula_pro#palette            = {}
 
-let g:dracula_pro#palette           = {}
-let g:dracula_pro#palette.fg        = ['#F8F8F2', 231]
+let g:dracula_pro#palette.cyan       = ['#80FFEA', 159]
+let g:dracula_pro#palette.green      = ['#2C763B', 76]
+let g:dracula_pro#palette.orange     = ['#FFCA80', 223]
+let g:dracula_pro#palette.pink       = ['#FF80BF', 218]
+let g:dracula_pro#palette.purple     = ['#9580FF', 147]
+let g:dracula_pro#palette.red        = ['#FF9580', 217]
+let g:dracula_pro#palette.yellow     = ['#FFFF80', 229]
+let g:dracula_pro#palette.grey       = ['#A4A3A3', 7]
+let g:dracula_pro#palette.slate_grey = ['#414D58', 8]
+let g:dracula_pro#palette.purple     = ['#9580FF',  99]
 
-let g:dracula_pro#palette.bglighter = ['#393649',  59]
-let g:dracula_pro#palette.bglight   = ['#2E2B3B',  59]
-let g:dracula_pro#palette.bg        = ['#22212C',  59]
-let g:dracula_pro#palette.bgdark    = ['#17161D',  17]
-let g:dracula_pro#palette.bgdarker  = ['#0B0B0F',  16]
+let g:dracula_pro#palette.fg         = ['#F8F8F2', 231]
 
-let g:dracula_pro#palette.comment   = ['#7970A9', 103]
-let g:dracula_pro#palette.selection = ['#454158',  60]
-let g:dracula_pro#palette.subtle    = ['#424450',  60]
+let g:dracula_pro#palette.bglighter  = ['#393649',  59]
+let g:dracula_pro#palette.bglight    = ['#2E2B3B',  59]
+let g:dracula_pro#palette.bg         = ['#22212C',  59]
+let g:dracula_pro#palette.bgdark     = ['#17161D',  17]
+let g:dracula_pro#palette.bgdarker   = ['#0B0B0F',  16]
+ let g:dracula_pro#palette.bgfold    = ['#242632',  235]
 
-let g:dracula_pro#palette.cyan      = ['#80FFEA', 159]
-let g:dracula_pro#palette.green     = ['#8AFF80', 157]
-let g:dracula_pro#palette.orange    = ['#FFCA80', 223]
-let g:dracula_pro#palette.pink      = ['#FF80BF', 218]
-let g:dracula_pro#palette.purple    = ['#9580FF', 147]
-let g:dracula_pro#palette.red       = ['#FF9580', 217]
-let g:dracula_pro#palette.yellow    = ['#FFFF80', 229]
+let g:dracula_pro#palette.comment    = ['#7970A9', 103]
+let g:dracula_pro#palette.selection  = ['#414D58', 240]
+let g:dracula_pro#palette.subtle     = ['#2C2D2F',  235]
+let g:dracula_pro#palette.function   = ['#8AFF80',  82]
+
 
 "
 " ANSI
@@ -40,7 +46,6 @@ let g:dracula_pro#palette.color_12 = '#AA99FF'
 let g:dracula_pro#palette.color_13 = '#FF99CC'
 let g:dracula_pro#palette.color_14 = '#99FFEE'
 let g:dracula_pro#palette.color_15 = '#FFFFFF'
-
 " }}}
 
 " Helper function that takes a variadic list of filetypes as args and returns
