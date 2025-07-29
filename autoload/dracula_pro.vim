@@ -11,6 +11,7 @@ let g:dracula_pro#palette.yellow     = ['#FFFF80', 229]
 let g:dracula_pro#palette.grey       = ['#A4A3A3', 7]
 let g:dracula_pro#palette.slate_grey = ['#414D58', 8]
 let g:dracula_pro#palette.purple     = ['#9580FF',  99]
+let g:dracula_pro#palette.black      = ['#000000',  0]
 
 let g:dracula_pro#palette.fg         = ['#F8F8F2', 231]
 

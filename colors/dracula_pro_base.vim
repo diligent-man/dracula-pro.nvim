@@ -17,10 +17,12 @@ endif
 let s:red          = g:dracula_pro#palette.red
 let s:cyan         = g:dracula_pro#palette.cyan
 let s:pink         = g:dracula_pro#palette.pink
+let s:grey         = g:dracula_pro#palette.grey
 let s:green        = g:dracula_pro#palette.green
+let s:black        = g:dracula_pro#palette.black
 let s:orange       = g:dracula_pro#palette.orange
 let s:purple       = g:dracula_pro#palette.purple
-let s:purple     = g:dracula_pro#palette.purple
+let s:purple       = g:dracula_pro#palette.purple
 let s:yellow       = g:dracula_pro#palette.yellow
 let s:slate_grey   = g:dracula_pro#palette.grey
 
@@ -153,6 +155,7 @@ call s:h('DraculaYellow', s:yellow)
 call s:h('DraculaYellowItalic', s:yellow, s:none, [s:attrs.italic])
 
 call s:h('DraculaPurple', s:purple)
+call s:h('DraculaSlateGrey', s:slate_grey)
 """"""""""""
 
 call s:h('DraculaBgLight', s:none, s:bglight)
@@ -173,6 +176,7 @@ call s:h('DraculaSelection', s:none, s:selection)
 
 call s:h('LineNr', s:linenr)
 call s:h('CursorLineNr', s:cursorlinenr)
+call s:h('IncSearch', s:none, s:none, [s:attrs.inverse, s:attrs.italic])
 
 call s:h('DraculaTodo', s:cyan, s:none, [s:attrs.bold])
 call s:h('DraculaSearch', s:green, s:yellow, [s:attrs.inverse])
@@ -183,7 +187,7 @@ call s:h('DraculaBoundary', s:comment, s:bgdark)
 call s:h('DraculaFolding', s:comment, s:bgfold)
 call s:h('DraculaLink', s:cyan, s:none, [s:attrs.underline])
 
-call s:h('DraculaError', s:red, s:none, [], s:red)
+call s:h('DraculaError', s:red, s:none, [s:attrs.italic], s:red)
 call s:h('DraculaErrorLine', s:none, s:none, [s:attrs.undercurl], s:red)
 call s:h('DraculaWarnLine', s:none, s:none, [s:attrs.undercurl], s:orange)
 call s:h('DraculaInfoLine', s:none, s:none, [s:attrs.undercurl], s:cyan)
@@ -214,9 +218,20 @@ hi! link CursorLineNr CursorLineNr
 hi! link Search       DraculaSearch
 
 hi! link ColorColumn  DraculaBgDark
-hi! link CursorColumn CursorLine
+hi! link CursorColumn CursorBg
 
-hi! link IncSearch    DraculaOrangeInverse
+hi! link IncSearch    IncSearch
+
+hi! link MoreMsg      DraculaFgBold
+hi! link ErrorMsg     DraculaError
+hi! link WarningMsg   DraculaYellow
+hi! link WarningMsg   DraculaOrangeItalic
+
+hi! link WinSeparator DraculaPink
+
+hi! link FoldColumn   DraculaSubtle
+hi! link Folded       DraculaFolding
+
 hi! link DiffAdd      DraculaGreen
 hi! link DiffAdded    DiffAdd
 hi! link DiffChange   DraculaDiffChange
@@ -224,10 +239,7 @@ hi! link DiffDelete   DraculaDiffDelete
 hi! link DiffRemoved  DiffDelete
 hi! link DiffText     DraculaDiffText
 hi! link Directory    DraculaPurpleBold
-hi! link ErrorMsg     DraculaRedInverse
-hi! link FoldColumn   DraculaSubtle
-hi! link Folded       DraculaFolding
-hi! link MoreMsg      DraculaFgBold
+
 hi! link NonText      DraculaSubtle
 hi! link Pmenu        DraculaBgDark
 hi! link PmenuSbar    DraculaBgDark
@@ -241,10 +253,10 @@ hi! link TabLine      DraculaBoundary
 hi! link TabLineFill  DraculaBgDarker
 hi! link TabLineSel   Normal
 hi! link Title        DraculaGreenBold
-hi! link VertSplit    DraculaBoundary
 hi! link Visual       DraculaSelection
 hi! link VisualNOS    Visual
-hi! link WarningMsg   DraculaOrangeInverse
+
+hi! link VertSplit    DraculaBoundary
 " }}}
 
 
