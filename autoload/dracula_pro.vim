@@ -3,6 +3,7 @@ let g:dracula_pro#palette            = {}
 
 let g:dracula_pro#palette.cyan       = ['#80FFEA', 159]
 let g:dracula_pro#palette.green      = ['#2C763B', 76]
+let g:dracula_pro#palette.light_green      = ['#8AFF80', 76]
 let g:dracula_pro#palette.orange     = ['#FFCA80', 223]
 let g:dracula_pro#palette.pink       = ['#FF80BF', 218]
 let g:dracula_pro#palette.purple     = ['#9580FF', 147]

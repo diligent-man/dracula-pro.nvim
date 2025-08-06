@@ -19,9 +19,9 @@ let s:cyan         = g:dracula_pro#palette.cyan
 let s:pink         = g:dracula_pro#palette.pink
 let s:grey         = g:dracula_pro#palette.grey
 let s:green        = g:dracula_pro#palette.green
+let s:light_green        = g:dracula_pro#palette.light_green
 let s:black        = g:dracula_pro#palette.black
 let s:orange       = g:dracula_pro#palette.orange
-let s:purple       = g:dracula_pro#palette.purple
 let s:purple       = g:dracula_pro#palette.purple
 let s:yellow       = g:dracula_pro#palette.yellow
 let s:slate_grey   = g:dracula_pro#palette.grey
@@ -192,6 +192,7 @@ call s:h('DraculaErrorLine', s:none, s:none, [s:attrs.undercurl], s:red)
 call s:h('DraculaWarnLine', s:none, s:none, [s:attrs.undercurl], s:orange)
 call s:h('DraculaInfoLine', s:none, s:none, [s:attrs.undercurl], s:cyan)
 
+call s:h('DraculaDiffAdd', s:light_green, s:none)
 call s:h('DraculaDiffChange', s:yellow, s:none)
 call s:h('DraculaDiffText', s:yellow, s:none)
 call s:h('DraculaDiffDelete', s:red, s:none)
@@ -232,7 +233,7 @@ hi! link WinSeparator DraculaPink
 hi! link FoldColumn   DraculaSubtle
 hi! link Folded       DraculaFolding
 
-hi! link DiffAdd      DraculaGreen
+hi! link DiffAdd      DraculaDiffAdd
 hi! link DiffAdded    DiffAdd
 hi! link DiffChange   DraculaDiffChange
 hi! link DiffDelete   DraculaDiffDelete
