@@ -192,9 +192,9 @@ call s:h('DraculaErrorLine', s:none, s:none, [s:attrs.undercurl], s:red)
 call s:h('DraculaWarnLine', s:none, s:none, [s:attrs.undercurl], s:orange)
 call s:h('DraculaInfoLine', s:none, s:none, [s:attrs.undercurl], s:cyan)
 
-call s:h('DraculaDiffChange', s:orange, s:none)
-call s:h('DraculaDiffText', s:bg, s:orange)
-call s:h('DraculaDiffDelete', s:red, s:bgdark)
+call s:h('DraculaDiffChange', s:yellow, s:none)
+call s:h('DraculaDiffText', s:yellow, s:none)
+call s:h('DraculaDiffDelete', s:red, s:none)
 " }}}
 " }}}
 
