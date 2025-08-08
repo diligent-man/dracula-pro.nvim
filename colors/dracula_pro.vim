@@ -11,4 +11,4 @@ let g:dracula_pro#palette.bgdarker  = ['#0B0B0F',  16]
 
 runtime colors/dracula_pro_base.vim
 
-let g:colors_name = 'dracula_pro'
+let g:colors_name = "dracula_pro"

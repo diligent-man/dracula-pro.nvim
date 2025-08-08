@@ -35,6 +35,7 @@ if exists('g:ale_enabled')
   hi! link ALEVirtualTextWarning Comment
 endif
 " }}}
+
 " CtrlP: {{{
 if exists('g:loaded_ctrlp')
   hi! link CtrlPMatch     IncSearch

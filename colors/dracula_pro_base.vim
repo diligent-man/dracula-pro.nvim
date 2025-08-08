@@ -19,7 +19,7 @@ let s:cyan         = g:dracula_pro#palette.cyan
 let s:pink         = g:dracula_pro#palette.pink
 let s:grey         = g:dracula_pro#palette.grey
 let s:green        = g:dracula_pro#palette.green
-let s:light_green        = g:dracula_pro#palette.light_green
+let s:light_green  = g:dracula_pro#palette.light_green
 let s:black        = g:dracula_pro#palette.black
 let s:orange       = g:dracula_pro#palette.orange
 let s:purple       = g:dracula_pro#palette.purple
@@ -130,6 +130,8 @@ endfunction
 call s:h('DraculaCyan', s:cyan)
 call s:h('DraculaCyanItalic', s:cyan, s:none, [s:attrs.italic])
 
+call s:h('DraculaLightGreen', s:light_green)
+
 call s:h('DraculaGreen', s:green)
 call s:h('DraculaGreenBold', s:green, s:none, [s:attrs.bold])
 call s:h('DraculaGreenItalic', s:green, s:none, [s:attrs.italic])
@@ -196,6 +198,16 @@ call s:h('DraculaDiffAdd', s:light_green, s:none)
 call s:h('DraculaDiffChange', s:yellow, s:none)
 call s:h('DraculaDiffText', s:yellow, s:none)
 call s:h('DraculaDiffDelete', s:red, s:none)
+
+call s:h("LspDiagnosticsHint", s:none, s:none)
+call s:h("LspDiagnosticsError", s:none, s:none)
+call s:h("LspDiagnosticsWarning", s:none, s:none)
+call s:h("LspDiagnosticsInfo", s:none, s:none)
+
+call s:h("DiagnosticSignWarn", s:yellow, s:none)
+call s:h("DiagnosticSignHint", s:cyan, s:none)
+call s:h("DiagnosticSignError", s:red, s:none)
+call s:h("DiagnosticSignInfo", s:light_green, s:none)
 " }}}
 " }}}
 
@@ -206,78 +218,96 @@ set background=dark
 
 " Required as some plugins will overwrite
 call s:h('Normal', s:fg, g:dracula_colorterm || has('gui_running') ? s:bg : s:none )
+
+call s:h('SignColumn', s:comment)
+call s:h('CursorLine', s:none, s:subtle)
+call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
+
 call s:h('StatusLine', s:none, s:bglighter, [s:attrs.bold])
 call s:h('StatusLineNC', s:none, s:bglight)
 call s:h('StatusLineTerm', s:none, s:bglighter, [s:attrs.bold])
 call s:h('StatusLineTermNC', s:none, s:bglight)
-call s:h('WildMenu', s:bg, s:purple, [s:attrs.bold])
-call s:h('CursorLine', s:none, s:subtle)
 
-hi! link LineNr       LineNr
-hi! link CursorLineNr CursorLineNr
+hi! link LineNr                    LineNr
+hi! link CursorLineNr              CursorLineNr
 
-hi! link Search       DraculaSearch
+hi! link Search                    DraculaSearch
 
-hi! link ColorColumn  DraculaBgDark
-hi! link CursorColumn CursorBg
+hi! link ColorColumn               DraculaBgDark
+hi! link CursorColumn              CursorBg
 
-hi! link IncSearch    IncSearch
+hi! link IncSearch                 IncSearch
 
-hi! link MoreMsg      DraculaFgBold
-hi! link ErrorMsg     DraculaError
-hi! link WarningMsg   DraculaYellow
-hi! link WarningMsg   DraculaOrangeItalic
+hi! link MoreMsg                   DraculaFgBold
+hi! link ErrorMsg                  DraculaError
+hi! link WarningMsg                DraculaYellow
+hi! link WarningMsg                DraculaOrangeItalic
 
-hi! link WinSeparator DraculaPink
+hi! link WinSeparator              DraculaPink
 
-hi! link FoldColumn   DraculaSubtle
-hi! link Folded       DraculaFolding
+hi! link FoldColumn                DraculaSubtle
+hi! link Folded                    DraculaFolding
 
-hi! link DiffAdd      DraculaDiffAdd
-hi! link DiffAdded    DiffAdd
-hi! link DiffChange   DraculaDiffChange
-hi! link DiffDelete   DraculaDiffDelete
-hi! link DiffRemoved  DiffDelete
-hi! link DiffText     DraculaDiffText
-hi! link Directory    DraculaPurpleBold
+hi! link DiffAdd                   DraculaDiffAdd
+hi! link DiffAdded                 DiffAdd
+hi! link DiffChange                DraculaDiffChange
+hi! link DiffDelete                DraculaDiffDelete
+hi! link DiffRemoved               DiffDelete
+hi! link DiffText                  DraculaDiffText
+hi! link Directory                 DraculaPurpleBold
 
-hi! link NonText      DraculaSubtle
-hi! link Pmenu        DraculaBgDark
-hi! link PmenuSbar    DraculaBgDark
-hi! link PmenuSel     DraculaSelection
-hi! link PmenuThumb   DraculaSelection
-hi! link Question     DraculaFgBold
+hi! link NonText                   DraculaSubtle
+hi! link Pmenu                     DraculaBgDark
+hi! link PmenuSbar                 DraculaBgDark
+hi! link PmenuSel                  DraculaSelection
+hi! link PmenuThumb                DraculaSelection
+hi! link Question                  DraculaFgBold
 
-call s:h('SignColumn', s:comment)
+hi! link TabLine                   DraculaBoundary
+hi! link TabLineFill               DraculaBgDarker
+hi! link TabLineSel                Normal
+hi! link Title                     DraculaGreenBold
+hi! link Visual                    DraculaSelection
+hi! link VisualNOS                 Visual
 
-hi! link TabLine      DraculaBoundary
-hi! link TabLineFill  DraculaBgDarker
-hi! link TabLineSel   Normal
-hi! link Title        DraculaGreenBold
-hi! link Visual       DraculaSelection
-hi! link VisualNOS    Visual
+hi! link VertSplit                 DraculaBoundary
 
-hi! link VertSplit    DraculaBoundary
+hi! link LspDiagnosticsHint        LspDiagnosticsHint
+hi! link LspDiagnosticsError       LspDiagnosticsError
+hi! link LspDiagnosticsWarning     LspDiagnosticsWarning
+hi! link LspDiagnosticsInfo        LspDiagnosticsInfo
+
+hi! link DiagnosticSignWarn        DiagnosticSignWarn
+hi! link DiagnosticSignHint        DiagnosticSignHint
+hi! link DiagnosticSignError       DiagnosticSignError
+hi! link DiagnosticSignInfo        DiagnosticSignInfo
 " }}}
 
 
 " Syntax: {{{
 " Required as some plugins will overwrite
-call s:h('MatchParen', s:green, s:none, [s:attrs.underline])
+call s:h('MatchParent', s:green, s:none, [s:attrs.underline])
 call s:h('Conceal', s:cyan, s:none)
 
 " Neovim uses SpecialKey for escape characters only. Vim uses it for that, plus whitespace.
-if has('nvim')
+if has("nvim")
   hi! link SpecialKey DraculaRed
+
+  hi! link LspDiagnosticsHint LspDiagnosticsHint
+  hi! link LspDiagnosticsInfo LspDiagnosticsInfo
+  hi! link LspDiagnosticsError LspDiagnosticsError
+  hi! link LspDiagnosticsWarning LspDiagnosticsWarning
+
+  hi! link DiagnosticSignWarn DiagnosticSignWarn
+  hi! link DiagnosticSignHint DiagnosticSignHint
+  hi! link DiagnosticSignError DiagnosticSignError
+  hi! link DiagnosticSignInfo DiagnosticSignInfo
+
   hi! link LspDiagnosticsUnderline DraculaFgUnderline
-  hi! link LspDiagnosticsInformation DraculaCyan
-  hi! link LspDiagnosticsHint DraculaCyan
-  hi! link LspDiagnosticsError DraculaError
-  hi! link LspDiagnosticsWarning DraculaOrange
-  hi! link LspDiagnosticsUnderlineError DraculaErrorLine
   hi! link LspDiagnosticsUnderlineHint DraculaInfoLine
-  hi! link LspDiagnosticsUnderlineInformation DraculaInfoLine
+  hi! link LspDiagnosticsUnderlineError DraculaErrorLine
   hi! link LspDiagnosticsUnderlineWarning DraculaWarnLine
+  hi! link LspDiagnosticsUnderlineInfo DraculaInfoLine
 else
   hi! link SpecialKey DraculaSubtle
 endif
