@@ -20,11 +20,12 @@ let s:pink         = g:dracula_pro#palette.pink
 let s:grey         = g:dracula_pro#palette.grey
 let s:green        = g:dracula_pro#palette.green
 let s:light_green  = g:dracula_pro#palette.light_green
+let s:white        = g:dracula_pro#palette.white
 let s:black        = g:dracula_pro#palette.black
 let s:orange       = g:dracula_pro#palette.orange
 let s:purple       = g:dracula_pro#palette.purple
 let s:yellow       = g:dracula_pro#palette.yellow
-let s:slate_grey   = g:dracula_pro#palette.grey
+let s:slate_grey   = g:dracula_pro#palette.slate_grey
 
 let s:fg           = g:dracula_pro#palette.fg
 
@@ -208,6 +209,11 @@ call s:h("DiagnosticSignWarn", s:yellow, s:none)
 call s:h("DiagnosticSignHint", s:cyan, s:none)
 call s:h("DiagnosticSignError", s:red, s:none)
 call s:h("DiagnosticSignInfo", s:light_green, s:none)
+
+call s:h("DraculaNormalFloat", s:white, s:none)
+call s:h("DraculaFloatBorder", s:cyan, s:none)
+call s:h("DraculaFloatTitle", s:light_green, s:none)
+call s:h("DraculaFloatFooter", s:cyan, s:none)
 " }}}
 " }}}
 
@@ -363,6 +369,12 @@ hi! link helpHyperTextJump DraculaLink
 hi! link helpCommand DraculaPurple
 hi! link helpExample DraculaGreen
 hi! link helpBacktick Special
+
+
+hi! link NormalFloat DraculaNormalFloat
+hi! link FloatBorder DraculaFloatBorder
+hi! link FloatTitle   DraculaFloatTitle
+hi! link FloatFooter DraculaFloatFooter
 "}}}
 
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0 et:
