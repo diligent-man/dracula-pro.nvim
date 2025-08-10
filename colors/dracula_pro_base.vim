@@ -211,7 +211,7 @@ call s:h("DiagnosticSignError", s:red, s:none)
 call s:h("DiagnosticSignInfo", s:light_green, s:none)
 
 call s:h("DraculaNormalFloat", s:white, s:none)
-call s:h("DraculaFloatBorder", s:cyan, s:none)
+call s:h("DraculaFloatBorder", s:slate_grey, s:none)
 call s:h("DraculaFloatTitle", s:light_green, s:none)
 call s:h("DraculaFloatFooter", s:cyan, s:none)
 " }}}
