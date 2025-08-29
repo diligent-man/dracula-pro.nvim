@@ -25,6 +25,7 @@ let s:black        = g:dracula_pro#palette.black
 let s:orange       = g:dracula_pro#palette.orange
 let s:purple       = g:dracula_pro#palette.purple
 let s:yellow       = g:dracula_pro#palette.yellow
+let s:soft_blue    = g:dracula_pro#palette.soft_blue
 let s:slate_grey   = g:dracula_pro#palette.slate_grey
 
 let s:fg           = g:dracula_pro#palette.fg
@@ -132,6 +133,8 @@ call s:h('DraculaCyan', s:cyan)
 call s:h('DraculaCyanItalic', s:cyan, s:none, [s:attrs.italic])
 
 call s:h('DraculaLightGreen', s:light_green)
+
+call s:h('DraculaSoftBlue', s:soft_blue)
 
 call s:h('DraculaGreen', s:green)
 call s:h('DraculaGreenBold', s:green, s:none, [s:attrs.bold])

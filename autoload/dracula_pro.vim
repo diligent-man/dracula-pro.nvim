@@ -1,19 +1,20 @@
 " Palette: {{{
 let g:dracula_pro#palette             = {}
 
-let g:dracula_pro#palette.cyan        = ["#80FFEA", 159]
-let g:dracula_pro#palette.green       = ["#2C763B", 76]
-let g:dracula_pro#palette.light_green = ["#8AFF80", 76]
-let g:dracula_pro#palette.orange      = ["#FFCA80", 223]
-let g:dracula_pro#palette.pink        = ["#FF80BF", 218]
-let g:dracula_pro#palette.purple      = ["#9580FF", 147]
 let g:dracula_pro#palette.red         = ["#FF9580", 217]
-let g:dracula_pro#palette.yellow      = ["#FFFF80", 229]
 let g:dracula_pro#palette.grey        = ["#A4A3A3", 7]
-let g:dracula_pro#palette.slate_grey  = ["#414D58", 8]
-let g:dracula_pro#palette.purple      = ["#9580FF",  99]
+let g:dracula_pro#palette.cyan        = ["#80FFEA", 159]
+let g:dracula_pro#palette.pink        = ["#FF80BF", 218]
+let g:dracula_pro#palette.green       = ["#2C763B", 76]
 let g:dracula_pro#palette.white       = ["#FFFFFF",  15]
 let g:dracula_pro#palette.black       = ["#000000",  0]
+let g:dracula_pro#palette.purple      = ["#9580FF", 147]
+let g:dracula_pro#palette.orange      = ["#FFCA80", 223]
+let g:dracula_pro#palette.purple      = ["#9580FF",  99]
+let g:dracula_pro#palette.yellow      = ["#FFFF80", 229]
+let g:dracula_pro#palette.soft_blue   = ["#5FAFFF", 4]
+let g:dracula_pro#palette.slate_grey  = ["#414D58", 8]
+let g:dracula_pro#palette.light_green = ["#8AFF80", 76]
 
 let g:dracula_pro#palette.fg          = ["#F8F8F2", 231]
 
