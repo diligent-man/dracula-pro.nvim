@@ -136,6 +136,8 @@ call s:h('DraculaLightGreen', s:light_green)
 
 call s:h('DraculaSoftBlue', s:soft_blue)
 
+call s:h('DraculaGrey', s:grey)
+
 call s:h('DraculaGreen', s:green)
 call s:h('DraculaGreenBold', s:green, s:none, [s:attrs.bold])
 call s:h('DraculaGreenItalic', s:green, s:none, [s:attrs.italic])
